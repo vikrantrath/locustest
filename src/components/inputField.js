@@ -7,7 +7,7 @@ export default function inputField({ input, setInput }) {
         id="search"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placholder="Search users by ID, address, pincode, items"
+        placeholder="Search users by ID, address, pincode, items"
       />
     </>
   );
