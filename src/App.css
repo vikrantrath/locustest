@@ -1,38 +1,78 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
+  align-content: center;
+  justify-content: center;
   flex-direction: column;
+}
+.empty_res_box {
+  height: 200px;
+  width: 170px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-self: center;
+  border: 0.1px solid gray;
+  box-shadow: beige;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.res_list {
+  width: 170px;
+  display: flex;
+  align-self: center;
+  text-align: left;
+  flex-direction: column;
+  height: 300px;
+  overflow-y: auto;
+  margin: 0px;
+  padding: 0px;
+}
+
+h5 {
+  margin: 4px;
+}
+h4 {
+  margin: 4px;
+}
+.res_item {
+  margin: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.res_item_id {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: rgb(84 81 81);
+}
+
+.res_item_name {
+  font-size: 1em;
+  font-weight: 500;
+  color: rgb(84 81 81);
+  margin-bottom: 4px;
+}
+
+.res_item_address {
+  font-size: 0.85em;
+  font-weight: 500;
+  color: rgb(169 161 161);
+}
+
+.res_item_itemfound {
+  font-size: 0.85em;
+  font-weight: 500;
+  color: rgb(169 161 161);
+  border-top: 0.5px solid #989494;
+  border-bottom: 0.5px solid #989494;
+  margin-bottom: 4px;
+}
+
+.highlighted_item {
+  background-color: #fffedc;
 }
