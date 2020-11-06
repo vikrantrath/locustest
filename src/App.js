@@ -29,20 +29,32 @@ function App() {
         document.querySelector(".res_list").scrollTop = 0;
       } else {
         setSelectedIndex(selectedIndex + 1);
+        document.querySelector(".res_list").scrollBy(0, 100)
       }
     }
 
     if (event.keyCode == 38 && searchResult.length > 0) {
-      setSelectedIndex(
-        selectedIndex - 1 < 0 ? searchResult.length - 1 : selectedIndex - 1
-      );
+      if (selectedIndex - 1 < 0) {
+        setSelectedIndex(searchResult.length - 1);
+        document.querySelector(".res_list").scrollTop = 100*(searchResult.length - 1);
+      } else {
+        setSelectedIndex( selectedIndex - 1);
+        document.querySelector(".res_list").scrollBy(0, -100)
+      }
+      // setSelectedIndex(
+      //   selectedIndex - 1 < 0 ? searchResult.length - 1 : selectedIndex - 1
+      // );
     }
   }
 
   return (
     <div className="App">
       <div>
-        <InputField input={searchTerm} setInput={setSearchTerm} />
+        <InputField
+          input={searchTerm}
+          setInput={setSearchTerm}
+          setIndexOnKeyPress={setIndexOnKeyPress}
+        />
       </div>
       {searchTerm &&
         (searchResult.length === 0 ? (
@@ -53,7 +65,6 @@ function App() {
             searchTerm={searchTerm}
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}
-            setIndexOnKeyPress={setIndexOnKeyPress}
           />
         ))}
     </div>

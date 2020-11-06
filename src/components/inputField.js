@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function inputField({ input, setInput }) {
+export default function inputField({ input, setInput, setIndexOnKeyPress }) {
   return (
     <>
       <input
@@ -8,6 +8,7 @@ export default function inputField({ input, setInput }) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Search users by ID, address, pincode, items"
+        onKeyDown={setIndexOnKeyPress}
       />
     </>
   );
