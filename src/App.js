@@ -26,24 +26,23 @@ function App() {
     if (event.keyCode == 40 && searchResult.length > 0) {
       if (selectedIndex + 1 > searchResult.length - 1) {
         setSelectedIndex(0);
-        document.querySelector(".res_list").scrollTop = 0;
+        document.querySelector(`#item_0`).scrollIntoView();
       } else {
+        document.querySelector(`#item_${selectedIndex + 1}`).scrollIntoView();
         setSelectedIndex(selectedIndex + 1);
-        document.querySelector(".res_list").scrollBy(0, 100)
       }
     }
 
     if (event.keyCode == 38 && searchResult.length > 0) {
       if (selectedIndex - 1 < 0) {
+        document
+          .querySelector(`#item_${searchResult.length - 1}`)
+          .scrollIntoView();
         setSelectedIndex(searchResult.length - 1);
-        document.querySelector(".res_list").scrollTop = 100*(searchResult.length - 1);
       } else {
-        setSelectedIndex( selectedIndex - 1);
-        document.querySelector(".res_list").scrollBy(0, -100)
+        setSelectedIndex(selectedIndex - 1);
+        document.querySelector(`#item_${selectedIndex - 1}`).scrollIntoView();
       }
-      // setSelectedIndex(
-      //   selectedIndex - 1 < 0 ? searchResult.length - 1 : selectedIndex - 1
-      // );
     }
   }
 

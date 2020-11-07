@@ -29,11 +29,13 @@ export default function searchResultItem({
 
   return (
     <div
+      id={`item_${index}`}
       className={
         selectedIndex == index ? "res_item highlighted_item" : "res_item"
       }
       onMouseEnter={() => setSelectedIndex(index)}
       onMouseLeave={() => setSelectedIndex(-1)}
+      key={index}
     >
       <div
         className="res_item_id"
