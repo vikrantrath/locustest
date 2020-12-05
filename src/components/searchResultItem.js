@@ -10,6 +10,8 @@ export default function searchResultItem({
   searchTerm,
   selectedIndex,
   setSelectedIndex,
+  setIndexOnKeyPress,
+  resetIndex,
 }) {
   function getHighlightedText(text, searchTerm) {
     if (text.length > 45) {
@@ -24,16 +26,19 @@ export default function searchResultItem({
   function checkItemsContainsTerm(items, searchTerm) {
     return items.some((e) => e.includes(searchTerm));
   }
-
-  console.log(selectedIndex);
-
   return (
     <div
+      id={`item_${index}`}
       className={
         selectedIndex == index ? "res_item highlighted_item" : "res_item"
       }
-      onMouseEnter={() => setSelectedIndex(index)}
-      onMouseLeave={() => setSelectedIndex(-1)}
+      onMouseEnter={(e) => setSelectedIndex(index,e)}
+      onMouseLeave={(e) =>resetIndex(e)}
+      onKeyDown={(e) => {
+        e.preventDefault();
+        setIndexOnKeyPress(e);
+      }}
+      key={index}
     >
       <div
         className="res_item_id"
