@@ -7,9 +7,10 @@ export default function searchResultList({
   selectedIndex,
   setSelectedIndex,
   setIndexOnKeyPress,
+  resetIndex,
 }) {
   return (
-    <ul className="res_list" onKeyDown={setIndexOnKeyPress} tabIndex="0">
+    <ul className="res_list">
       {listOfItems.map((item, index) => (
         <SearchResultItem
           {...item}
@@ -17,6 +18,8 @@ export default function searchResultList({
           searchTerm={searchTerm}
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
+          setIndexOnKeyPress={setIndexOnKeyPress}
+          resetIndex={resetIndex}
         />
       ))}
     </ul>
